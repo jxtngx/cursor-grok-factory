@@ -1,0 +1,12 @@
+---
+description: Prefer Grok models on xAI and in the Cursor SDK catalog.
+globs:
+  - "**/*"
+alwaysApply: true
+---
+
+# Grok first
+
+- Direct xAI: `grok-4.6` (or the spec's pinned Grok id). See https://docs.x.ai/overview
+- Cursor SDK: pick a Grok id from `Cursor.models.list()`. Do not default `auto` / `auto-smart`.
+- If Grok is missing from the Cursor catalog, fail the ticket and tell ops. Do not silently pick Claude.

@@ -1,0 +1,8 @@
+---
+description: No emojis.
+globs:
+  - "**/*"
+alwaysApply: true
+---
+
+# No emojis

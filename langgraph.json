@@ -1,0 +1,6 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "agent": "./templates/python-langchain/src/factory_grok/graph.py:make_graph"
+  }
+}

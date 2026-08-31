@@ -1,0 +1,51 @@
+# Harness knobs. Harbor and LangSmith override via config/env.
+# @init-grok fills language, sdk, knowledge, langsmith extras.
+
+schema_version: 1
+
+language: unset   # python | typescript
+sdk: unset        # langchain | xai-sdk | vercel-ai
+
+prompt:
+  id: default
+  path: harness/prompts/system.md
+
+model:
+  id: grok-4.6
+  temperature: 0
+  cursor_prefer: grok   # Cursor SDK: pick Grok from catalog, never auto
+
+knowledge:
+  kind: none          # none | local | aws
+  local_path: knowledge/
+  aws_bucket: ""
+  aws_prefix: ""
+  aws_region: us-east-1
+
+tools:
+  - id: echo
+    enabled: true
+
+middleware:
+  - id: trace
+    enabled: true
+    notes: LangSmith tracing always-on
+  - id: tool_error
+    enabled: true
+  - id: max_iterations
+    enabled: true
+    value: 8
+
+langsmith:
+  tracing: true
+  datasets: false
+  evals: false
+  prompts: false
+  monitoring: false
+  annotations: false
+  project: cursor-grok-factory
+
+eval:
+  langsmith_dataset: grok-factory-smoke
+  harbor_agent: langgraph   # langchain track only; others use custom runner
+  harbor_plugin: langsmith

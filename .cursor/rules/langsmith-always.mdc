@@ -1,0 +1,12 @@
+---
+description: LangSmith tracing is mandatory. Other LangSmith components are opt-in from init.
+globs:
+  - "**/*"
+alwaysApply: true
+---
+
+# LangSmith
+
+Tracing is always on. Do not ship a product with tracing disabled.
+Datasets, evals, prompt hub, monitoring, annotations only if knobs.langsmith says so.
+https://docs.smith.langchain.com/

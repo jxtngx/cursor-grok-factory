@@ -1,0 +1,10 @@
+---
+description: Small diffs.
+globs:
+  - "**/*"
+alwaysApply: true
+---
+
+# Incremental changes
+
+One client or one knob per turn unless the ticket says otherwise.

@@ -1,0 +1,13 @@
+.venv/
+node_modules/
+dist/
+__pycache__/
+.DS_Store
+.env
+TRACK.md
+.cursor/plans/project-init/*.md
+!/.cursor/plans/project-init/.gitkeep
+.langsmith/
+.pytest_cache/
+.ruff_cache/
+knowledge/private/
