@@ -7,7 +7,7 @@ and/or the **[Cursor SDK / APIs](https://cursor.com/docs/api)**.
 At `@init-grok` you choose **together**, **Grok-only**, or **Cursor-only**.
 Cursor's team implements from a spec you write in the first session.
 
-Sister: [cursor-agent-factory](https://github.com/jxtngx/cursor-agent-factory)
+Sister: [cursor-langchain-factory](https://github.com/jxtngx/cursor-langchain-factory)
 (LangChain-only). This factory is **Grok-first** and lets you pick the Grok
 inference SDK. Cursor is the workspace/agent runtime; when you pick together,
 it prefers Grok from the catalog.
