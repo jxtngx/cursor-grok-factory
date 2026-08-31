@@ -5,10 +5,9 @@ After language, Grok SDK, Cursor pairing, and knowledge are locked. Spec only.
 ## MUST cover
 
 - Job the product does (one sentence)
-- How Grok inference and Cursor SDK **share work** (default: together)
-  - Grok/xAI: chat, tools, Responses API
-  - Cursor SDK: local/cloud agents, workspace edits, Grok from the catalog
-  - One LangSmith project traces both
+- How Grok inference and Cursor SDK relate, using the pairing they **already chose** (`together` | `grok-only` | `cursor-only`)
+  - Together: Grok/xAI chat+tools; Cursor SDK local/cloud agents; one LangSmith project
+  - Grok-only / cursor-only: do not add the other client
 - If grok-only or cursor-only, why the other client is absent
 - Tools the Grok agent may call
 - Cursor runtime: local, cloud, or both
@@ -23,4 +22,5 @@ Write the two plan files from templates.
 
 - Implement
 - Add a second **inference** SDK
-- Force the user to pick Grok *or* Cursor
+- Change the pairing they locked at init
+

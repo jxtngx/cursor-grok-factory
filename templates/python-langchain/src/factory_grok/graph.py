@@ -1,6 +1,7 @@
 """Harbor / LangGraph entry. Engineers replace this after spec approval.
 
-Together-mode: ChatXAI (Grok) plus cursor-sdk agent in the same graph/config.
+Honor cursor.pairing from knobs: together ships ChatXAI plus cursor-sdk;
+grok-only / cursor-only ship one client.
 """
 
 

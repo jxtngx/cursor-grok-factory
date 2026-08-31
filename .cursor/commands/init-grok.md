@@ -1,7 +1,7 @@
 # Init Grok (factory)
 
-Start a **new Grok + Cursor SDK product** from this factory.
-Default pairing: **together**. Language, inference SDK, Cursor pairing, knowledge first.
+Start a **new Grok and/or Cursor SDK product** from this factory.
+Language, inference SDK, **Cursor pairing (user chooses)**, knowledge first.
 Spec first. No live API calls until approval.
 
 ## Usage
@@ -36,7 +36,7 @@ If they say both, refuse. One product.
 title: Grok Factory — SDK
 questions:
   - id: sdk
-    prompt: One Grok inference SDK. Cursor SDK is paired in the next step.
+    prompt: One Grok inference SDK. Next you choose whether Cursor SDK is used with it, instead of it, or not at all.
     options:
       - id: langchain
         label: LangChain (langchain-xai / @langchain/xai)
@@ -58,26 +58,30 @@ Map TRACK.md (one line): `{language}-{sdk}` as below. Cursor is **not** a third 
 | typescript | xai-sdk | `typescript-xai-sdk` |
 | typescript | vercel-ai | `typescript-vercel-ai` |
 
-## 1b. Cursor pairing (default: together)
+## 1b. Cursor pairing (required, no default)
 
-Cursor SDK is used **with** the Grok inference SDK. That is the factory default.
+Ask **once**. Do not assume together. Do not skip.
 
 ```
-title: Grok Factory — Cursor SDK
+title: Grok Factory — Cursor pairing
 questions:
   - id: cursor_pairing
-    prompt: Grok (xAI) and Cursor SDK together is the default product. Change?
+    prompt: How should Grok inference and the Cursor SDK relate in this product?
     options:
       - id: together
-        label: Together (default) — Grok inference + Cursor agents/workspace
+        label: Together — Grok inference + Cursor agents/workspace
       - id: grok-only
-        label: Grok inference only (opt out of Cursor SDK)
+        label: Grok inference only (no Cursor SDK)
       - id: cursor-only
         label: Cursor SDK only (Grok from Cursor catalog, no direct xAI client)
 ```
 
-Default if they skip: `together`.
-Write `harness/knobs.yaml` `cursor.enabled: true` for `together` and `cursor-only`; `false` for `grok-only`.
+If they skip or say "whatever," ask again.
+Write `harness/knobs.yaml`:
+- `together` → `cursor.enabled: true`, `cursor.pairing: together`
+- `grok-only` → `cursor.enabled: false`, `cursor.pairing: grok-only`
+- `cursor-only` → `cursor.enabled: true`, `cursor.pairing: cursor-only`
+
 `cursor-only` still prefers Grok in `Cursor.models.list()`. Direct xAI client is omitted.
 
 ## 2. Knowledge
@@ -150,5 +154,5 @@ Then @scrum-master.
 - Default model to Auto
 - Turn tracing off
 - Scaffold Vercel on Python
-- Treat Cursor SDK and Grok inference as mutually exclusive
+- Treat Cursor pairing as optional or default it to together
 - Pretend this is a lab

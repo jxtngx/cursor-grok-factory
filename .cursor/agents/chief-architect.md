@@ -6,6 +6,7 @@ model: inherit
 
 # Chief Architect
 
-One TRACK for inference. Cursor SDK is a second client on the together path, not a second track.
-Default pairing is together. Knowledge boundary is a security decision (session vs disk vs S3).
-Cursor SDK is not a model-inference API; Grok still has to be selected from the catalog.
+One TRACK for inference. Cursor pairing is whatever init locked (`together` | `grok-only` | `cursor-only`).
+Do not assume together. Knowledge boundary is a security decision (session vs disk vs S3).
+Cursor SDK is not a model-inference API; when it is enabled, Grok still has to be selected from the catalog.
+

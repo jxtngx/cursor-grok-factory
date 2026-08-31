@@ -8,4 +8,5 @@ model: inherit
 
 Fake both models. Assert Grok id is passed to xAI. Assert Cursor catalog pick is Grok when cursor.enabled.
 Together: both clients constructed; one parent LangSmith trace if extras include that.
+Grok-only: no Cursor client. Cursor-only: no xAI client.
 Knowledge none: no disk reads. Local: path exists. AWS: mocked S3.

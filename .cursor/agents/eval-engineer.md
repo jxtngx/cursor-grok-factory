@@ -6,7 +6,7 @@ model: inherit
 
 # Eval Engineer
 
-Tracing always, including both Grok inference and Cursor SDK on the together path.
+Tracing always, covering whichever clients `cursor.pairing` enabled.
 Datasets/evals only if knobs say so.
 Harbor plugin langsmith. LangChain track uses `--agent langgraph`.
 

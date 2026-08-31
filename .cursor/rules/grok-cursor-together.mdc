@@ -1,15 +1,17 @@
 ---
-description: Default product uses Grok inference and Cursor SDK together.
+description: Grok inference and Cursor SDK may be used together. Pairing is chosen at init, not assumed.
 globs:
   - "**/*"
 alwaysApply: true
 ---
 
-# Grok + Cursor together
+# Grok and Cursor pairing
 
-`cursor.pairing: together` is the default.
+`cursor.pairing` is set at `@init-grok`. Values: `together` | `grok-only` | `cursor-only`.
+There is no factory default. If it is `unset`, stop and ask.
 
-- Grok inference (LangChain / xAI SDK / Vercel): chat, tools, Responses API. `XAI_API_KEY`.
-- Cursor SDK: local/cloud agents, workspace. `CURSOR_API_KEY`. Model = Grok from `Cursor.models.list()`.
-- One LangSmith project traces both.
-- Opt-out is explicit (`grok-only` or `cursor-only`). Do not invent exclusivity.
+- `together`: Grok inference (LangChain / xAI SDK / Vercel) **and** Cursor SDK. Two keys. One LangSmith project.
+- `grok-only`: inference client only. No Cursor SDK.
+- `cursor-only`: Cursor SDK only. Grok from `Cursor.models.list()`. No direct xAI client.
+
+Together is allowed. It is not implied.

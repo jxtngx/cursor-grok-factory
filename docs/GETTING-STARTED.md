@@ -16,7 +16,7 @@ Official:
 - https://ai-sdk.dev/providers/ai-sdk-providers/xai
 - https://docs.smith.langchain.com/
 
-Together-mode needs both keys. Grok-only omits Cursor. Cursor-only omits xAI.
+Pairing is chosen at `@init-grok`. Together needs both keys. Grok-only omits Cursor. Cursor-only omits xAI.
 
 Grok on xAI needs `XAI_API_KEY`.
 Cursor SDK needs `CURSOR_API_KEY`.

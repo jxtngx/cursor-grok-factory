@@ -8,5 +8,6 @@ model: inherit
 
 Spine: https://docs.x.ai/overview
 Default model `grok-4.6` on xAI.
-Together-mode: this client does inference; Cursor SDK does workspace/agents. Same Grok family, two keys.
-On Cursor, list models and pick Grok. No Auto. Defer Cursor API details to `cursor-sdk-sme`.
+Together-mode (only if pairing is together): this client does inference; Cursor SDK does workspace/agents. Same Grok family, two keys.
+On Cursor (if enabled), list models and pick Grok. No Auto. Defer Cursor API details to `cursor-sdk-sme`.
+
