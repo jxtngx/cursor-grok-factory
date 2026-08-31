@@ -1,6 +1,8 @@
 # Track: typescript-vercel-ai
 
-- `import { xai } from "@ai-sdk/xai"`
-- `generateText` / `streamText` with `xai("grok-4.6")` or `xai.responses("grok-4.6")`
+Together (default):
+
+- `import { xai } from "@ai-sdk/xai"` + `generateText` / `streamText` with `grok-4.6`
+- `@cursor/sdk` with Grok from the catalog
 - TypeScript only
-- LangSmith tracing via env / wrapper
+- LangSmith tracing via env / wrapper on both clients

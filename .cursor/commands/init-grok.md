@@ -1,7 +1,8 @@
 # Init Grok (factory)
 
 Start a **new Grok + Cursor SDK product** from this factory.
-Language, SDK, knowledge first. Spec first. No live API calls until approval.
+Default pairing: **together**. Language, inference SDK, Cursor pairing, knowledge first.
+Spec first. No live API calls until approval.
 
 ## Usage
 
@@ -29,13 +30,13 @@ questions:
 
 If they say both, refuse. One product.
 
-## 1. SDK (required)
+## 1. Grok inference SDK (required)
 
 ```
 title: Grok Factory — SDK
 questions:
   - id: sdk
-    prompt: One SDK. Grok models on all of them.
+    prompt: One Grok inference SDK. Cursor SDK is paired in the next step.
     options:
       - id: langchain
         label: LangChain (langchain-xai / @langchain/xai)
@@ -47,7 +48,7 @@ questions:
 
 If `language=python` and `sdk=vercel-ai`, refuse and re-ask SDK.
 
-Map TRACK.md (one line):
+Map TRACK.md (one line): `{language}-{sdk}` as below. Cursor is **not** a third track; it pairs with this SDK.
 
 | language | sdk | TRACK.md |
 | --- | --- | --- |
@@ -56,6 +57,28 @@ Map TRACK.md (one line):
 | typescript | langchain | `typescript-langchain` |
 | typescript | xai-sdk | `typescript-xai-sdk` |
 | typescript | vercel-ai | `typescript-vercel-ai` |
+
+## 1b. Cursor pairing (default: together)
+
+Cursor SDK is used **with** the Grok inference SDK. That is the factory default.
+
+```
+title: Grok Factory — Cursor SDK
+questions:
+  - id: cursor_pairing
+    prompt: Grok (xAI) and Cursor SDK together is the default product. Change?
+    options:
+      - id: together
+        label: Together (default) — Grok inference + Cursor agents/workspace
+      - id: grok-only
+        label: Grok inference only (opt out of Cursor SDK)
+      - id: cursor-only
+        label: Cursor SDK only (Grok from Cursor catalog, no direct xAI client)
+```
+
+Default if they skip: `together`.
+Write `harness/knobs.yaml` `cursor.enabled: true` for `together` and `cursor-only`; `false` for `grok-only`.
+`cursor-only` still prefers Grok in `Cursor.models.list()`. Direct xAI client is omitted.
 
 ## 2. Knowledge
 
@@ -106,17 +129,18 @@ Follow [launch-product-discovery.md](launch-product-discovery.md).
 1. `.cursor/plans/project-init/<slug>-technical-requirements.plan.md`
 2. `.cursor/plans/project-init/<slug>-harness.plan.md`
 3. `TRACK.md`
-4. Update `harness/knobs.yaml` (language, sdk, knowledge, langsmith, model grok-4.6)
+4. Update `harness/knobs.yaml` (language, sdk, knowledge, langsmith, model grok-4.6, **cursor.enabled**)
 5. If LangChain track: point `langgraph.json` at the matching template
 
 ## 6. Review, then handoff
 
 ```
 @chief-architect
-TRACK.md=[track] knowledge=[none|local|aws]
+TRACK.md=[track] knowledge=[none|local|aws] cursor=[together|grok-only|cursor-only]
 LangSmith tracing=on extras=[...]
 Then @grok-sme.
-If langchain: @langchain-sme.
+If cursor not grok-only: @cursor-sdk-sme.
+If langchain and not cursor-only: @langchain-sme.
 Then @scrum-master.
 ```
 
@@ -126,4 +150,5 @@ Then @scrum-master.
 - Default model to Auto
 - Turn tracing off
 - Scaffold Vercel on Python
+- Treat Cursor SDK and Grok inference as mutually exclusive
 - Pretend this is a lab

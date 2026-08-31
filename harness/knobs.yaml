@@ -4,7 +4,14 @@
 schema_version: 1
 
 language: unset   # python | typescript
-sdk: unset        # langchain | xai-sdk | vercel-ai
+sdk: unset        # langchain | xai-sdk | vercel-ai  (inference)
+
+# Cursor SDK sits beside the Grok inference client. Default: together.
+cursor:
+  enabled: true
+  pairing: together   # together | grok-only | cursor-only
+  runtime: local      # local | cloud | both
+  model_prefer: grok  # never auto while a Grok id exists in the catalog
 
 prompt:
   id: default
@@ -13,7 +20,6 @@ prompt:
 model:
   id: grok-4.6
   temperature: 0
-  cursor_prefer: grok   # Cursor SDK: pick Grok from catalog, never auto
 
 knowledge:
   kind: none          # none | local | aws

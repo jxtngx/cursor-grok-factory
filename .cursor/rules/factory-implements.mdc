@@ -9,6 +9,7 @@ alwaysApply: true
 
 - Before a technical-requirements file exists: only `@init-grok` / discovery. No clients.
 - After the spec is approved: implement the ticket. Do not send the user to write the SDK themselves.
-- One TRACK.md. Do not scaffold a second language or SDK.
+- One TRACK.md. Do not scaffold a second language or a second **inference** SDK.
+- Cursor SDK + Grok inference together is the default. Do not drop one because "one SDK" was misread.
 - Grok is the default model. Do not silently switch to OpenAI/Anthropic.
 - LangSmith tracing stays on.

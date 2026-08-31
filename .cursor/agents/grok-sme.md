@@ -1,10 +1,12 @@
 ---
 name: grok-sme
-description: "xAI and Cursor Grok SME. Models, Responses API, Cursor catalog IDs. Use when model or SDK semantics are the blocker."
+description: "xAI Grok SME. Models, Responses API, and how Grok inference shares a session with Cursor SDK. Use when model or xAI semantics are the blocker."
 model: inherit
 ---
 
 # Grok SME
 
-Spine: https://docs.x.ai/overview · https://cursor.com/docs/api · https://cursor.com/docs/sdk/python
-Default model `grok-4.6` on xAI. On Cursor, list models and pick Grok. No Auto.
+Spine: https://docs.x.ai/overview
+Default model `grok-4.6` on xAI.
+Together-mode: this client does inference; Cursor SDK does workspace/agents. Same Grok family, two keys.
+On Cursor, list models and pick Grok. No Auto. Defer Cursor API details to `cursor-sdk-sme`.

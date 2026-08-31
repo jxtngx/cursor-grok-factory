@@ -16,6 +16,9 @@ Official:
 - https://ai-sdk.dev/providers/ai-sdk-providers/xai
 - https://docs.smith.langchain.com/
 
+Together-mode needs both keys. Grok-only omits Cursor. Cursor-only omits xAI.
+
 Grok on xAI needs `XAI_API_KEY`.
 Cursor SDK needs `CURSOR_API_KEY`.
 LangSmith tracing needs `LANGCHAIN_API_KEY` (or `LANGSMITH_API_KEY`).
+
