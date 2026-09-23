@@ -1,3 +1,9 @@
+---
+name: init-grok
+description: Init Grok (factory)
+disable-model-invocation: true
+---
+
 # Init Grok (factory)
 
 Start a **new Grok and/or Cursor SDK product** from this factory.

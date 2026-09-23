@@ -1,3 +1,9 @@
+---
+name: launch-product-discovery
+description: Launch Product Discovery
+disable-model-invocation: true
+---
+
 # Launch Product Discovery
 
 After language, Grok SDK, Cursor pairing, and knowledge are locked. Spec only.
